@@ -1,24 +1,9 @@
-.. image:: https://travis-ci.org/wikimedia/pywikibot.svg?branch=master
-   :alt: Travis Build Status
-   :target: https://travis-ci.org/wikimedia/pywikibot
-.. image:: https://img.shields.io/appveyor/ci/ladsgroup/pywikibot-g4xqx/master.svg?style=flat-square&label=AppVeyor%20CI
-   :alt: AppVeyor Build Status
-   :target: https://ci.appveyor.com/project/ladsgroup/pywikibot-g4xqx
-.. image:: https://codecov.io/gh/wikimedia/pywikibot/branch/master/graph/badge.svg
-   :alt: Code coverage
-   :target: https://codecov.io/gh/wikimedia/pywikibot
-.. image:: https://api.codeclimate.com/v1/badges/de6ca4c66e7c7bee4156/maintainability
-   :alt: Maintainability
-   :target: https://codeclimate.com/github/wikimedia/pywikibot/maintainability
-.. image:: https://img.shields.io/pypi/pyversions/pywikibot.svg
-   :alt: Python
-   :target: https://www.python.org/downloads/
-.. image:: https://img.shields.io/pypi/v/pywikibot.svg
-   :alt: Pywikibot release
-   :target: https://pypi.org/project/pywikibot/
+Pywikibot for Rfam
+==================
 
-Pywikibot
-=========
+This is an Rfam fork of the [Pywikibot](https://github.com/wikimedia/pywikibot)
+framework with new scripts for managing [Rfam](http://rfam.org) data on Wikipedia
+and Wikimedia Commons.
 
 The Pywikibot framework is a Python library that interfaces with the
 `MediaWiki API <https://www.mediawiki.org/wiki/API:Main_page>`_
@@ -35,7 +20,7 @@ Quick start
 
 ::
 
-    git clone https://gerrit.wikimedia.org/r/pywikibot/core.git
+    git clone https://github.com/Rfam/pywikibot.git
     cd core
     git submodule update --init
     python pwb.py script_name
@@ -63,11 +48,32 @@ If you wish to write your own script it's very easy to get started:
     page.text = page.text.replace('foo', 'bar')
     page.save('Replacing "foo" with "bar"')  # Saves the page
 
+Rfam-specific Tasks
+-------------------
+
+1. **Upload Rfam secondary structure diagram** to Wikimedia Commons. Note: sharing
+the images on Wikimedia Commons makes the files available to Wikipedia projects
+in different languages (make sure `upload_to_commons = True` in `user-conf.py`).
+
+::
+
+    python pwb.py upload_image RF03114 RF03115
+
+2. **Create Rfam infobox** to get the code that can be manually added to Wikipedia.
+
+::
+
+    python pwb.py generate_infobox RF03114 RF03115
+
+3. **Add Rfam infobox** to a Wikipedia page (only if it has no infobox already).
+
+::
+
+    python pwb.py add_infobox RF03114 RF03115
+
 -------------------------------------------------------------------------------------------
 
-For more documentation on pywikibot see our `docs <https://doc.wikimedia.org/pywikibot/>`_.
-
-.. include:: pywikibot/DIRECTORIES.rst
+For more documentation on pywikibot see `docs <https://doc.wikimedia.org/pywikibot/>`_.
 
 Required external programs
 ---------------------------
@@ -75,14 +81,3 @@ Required external programs
 It may require the following programs to function properly:
 
 * `7za`: To extract 7z files
-
-.. include:: HISTORY.rst
-
-Contributing
-------------
-
-Our code is maintained on Wikimedia's `Gerrit installation <https://gerrit.wikimedia.org/>`_,
-`learn <https://www.mediawiki.org/wiki/Developer_access>`_ how to get
-started.
-
-.. include:: CODE_OF_CONDUCT.rst

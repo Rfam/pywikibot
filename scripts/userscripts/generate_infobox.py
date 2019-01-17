@@ -1,5 +1,5 @@
 """
-A script to generate Wikipedia infoboxes for Rfam families.
+A script that generates Wikipedia infoboxes for Rfam families.
 
 Usage:
 python generate_infobox.py RF00001 RF00002 RF00003
@@ -16,7 +16,7 @@ template = """{{{{Infobox rfam
 | Name = {rfam_id}
 | image = {image}
 | width =
-| caption = Predicted [[secondary structure]] and [[sequence conservation]] of {description}
+| caption = Consensus [[secondary structure]] and [[sequence conservation]] of {description}
 | Symbol = {rfam_id}
 | AltSymbols =
 | Rfam = {rfam_acc}

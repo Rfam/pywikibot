@@ -138,4 +138,5 @@ def main():
         print get_infobox(family)
 
 
-main()
+if __name__ == '__main__':
+    main()

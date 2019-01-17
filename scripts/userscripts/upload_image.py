@@ -71,4 +71,5 @@ def main():
         upload_image(family)
 
 
-main()
+if __name__ == '__main__':
+    main()

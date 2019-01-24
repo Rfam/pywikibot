@@ -71,6 +71,12 @@ in different languages (make sure `upload_to_commons = True` in `user-conf.py`).
 
     python pwb.py add_infobox RF03114 RF03115
 
+4. **Generate Rfam infobox** for a Wikipedia page (need to add to Wikipedia manually).
+
+::
+
+    python pwb.py generate_gallery RT_RNA_motifs
+
 -------------------------------------------------------------------------------------------
 
 For more documentation on pywikibot see `docs <https://doc.wikimedia.org/pywikibot/>`_.

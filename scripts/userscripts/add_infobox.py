@@ -26,9 +26,11 @@ def add_infobox(family):
         cursor.execute(sql)
         result = cursor.fetchone()
 
-    wiki = pywikibot.Page(site, result['title'].decode('utf-8'))
+    wiki_title = result['title'].decode('utf-8')
 
-    if 'Infobox' in wiki.text:
+    wiki = pywikibot.Page(site, wiki_title)
+
+    if 'Infobox rfam' in wiki.text:
         print('Infobox already exists, not adding a new one')
         return
 

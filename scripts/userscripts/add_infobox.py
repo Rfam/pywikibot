@@ -28,6 +28,11 @@ def add_infobox(family):
 
     wiki_title = result['title'].decode('utf-8')
 
+    # prevent accidental updating of generic wiki pages
+    if 'motif' not in wiki_title or 'motifs' in wiki_title:
+        print('Not updating page {}'.format(wiki_title))
+        return
+
     wiki = pywikibot.Page(site, wiki_title)
 
     if 'Infobox rfam' in wiki.text:
@@ -36,7 +41,7 @@ def add_infobox(family):
 
     wiki.text = infobox + '\n' + wiki.text
     print wiki.text
-    # wiki.save('Add Rfam infobox', botflag=True)
+    wiki.save('Add Rfam infobox', botflag=True)
 
 
 def main():

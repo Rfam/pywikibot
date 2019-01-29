@@ -30,7 +30,7 @@ def generate_desc_file(family):
 def preprocess_image(family):
     svg_web = '{}-web.svg'.format(family)
     svg_final = '{}.svg'.format(family)
-    cmd = 'wget -q -O {0} http://rfamlive.xfam.org/family/{1}/image/rscape'
+    cmd = 'wget -q -O {0} http://rfam.xfam.org/family/{1}/image/rscape'
     os.system(cmd.format(svg_web, family))
     with open(svg_web, 'r') as f_in:
         with open(svg_final, 'w') as f_out:

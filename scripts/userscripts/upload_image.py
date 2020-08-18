@@ -53,7 +53,7 @@ def upload_image(family):
     image = preprocess_image(family)
     cmd = cmd_template.format(desc=descfile, family=family, image=image)
     try:
-        print cmd
+        print(cmd)
         os.system(cmd)
     finally:
         os.remove(descfile)
@@ -64,7 +64,7 @@ def main():
     if len(sys.argv) > 1:
         families = sys.argv[1:]
     else:
-        print 'Please specify Rfam accession'
+        print('Please specify Rfam accession')
         return
 
     for family in families:

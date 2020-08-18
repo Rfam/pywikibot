@@ -25,12 +25,6 @@ Quick start
     git submodule update --init
     python pwb.py script_name
 
-Or to install using PyPI (excluding scripts)
-::
-
-    pip install -U setuptools
-    pip install pywikibot
-
 Install Rfam dependencies using virtualenv:
 ::
 

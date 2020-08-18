@@ -131,11 +131,11 @@ def main():
     if len(sys.argv) > 1:
         families = sys.argv[1:]
     else:
-        print 'Please specify Rfam accession'
+        print('Please specify Rfam accession')
         return
 
     for family in families:
-        print get_infobox(family)
+        print(get_infobox(family))
 
 
 if __name__ == '__main__':

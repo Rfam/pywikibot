@@ -31,6 +31,13 @@ Or to install using PyPI (excluding scripts)
     pip install -U setuptools
     pip install pywikibot
 
+Install Rfam dependencies using virtualenv:
+::
+
+    virtualenv env
+    source env/bin/activate
+    pip install -r requirements.txt
+
 Our `installation
 guide <https://www.mediawiki.org/wiki/Manual:Pywikibot/Installation>`_
 has more details for advanced usage.

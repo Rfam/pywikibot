@@ -21,9 +21,8 @@ Quick start
 ::
 
     git clone https://github.com/Rfam/pywikibot.git
-    cd core
+    cd pywikibot
     git submodule update --init
-    python pwb.py script_name
 
 Install Rfam dependencies using virtualenv:
 ::
@@ -36,25 +35,17 @@ Our `installation
 guide <https://www.mediawiki.org/wiki/Manual:Pywikibot/Installation>`_
 has more details for advanced usage.
 
-Basic Usage
------------
-
-If you wish to write your own script it's very easy to get started:
-
+⚠️ Make sure the following line is present in `user-config.py`:
 ::
 
-    import pywikibot
-    site = pywikibot.Site('en', 'wikipedia')  # The site we want to run our bot on
-    page = pywikibot.Page(site, 'Wikipedia:Sandbox')
-    page.text = page.text.replace('foo', 'bar')
-    page.save('Replacing "foo" with "bar"')  # Saves the page
+    upload_to_commons = True
 
 Rfam-specific Tasks
 -------------------
 
 1. **Upload Rfam secondary structure diagram** to Wikimedia Commons. Note: sharing
 the images on Wikimedia Commons makes the files available to Wikipedia projects
-in different languages (make sure `upload_to_commons = True` in `user-conf.py`).
+in different languages.
 
 ::
 
@@ -81,6 +72,19 @@ in different languages (make sure `upload_to_commons = True` in `user-conf.py`).
 -------------------------------------------------------------------------------------------
 
 For more documentation on pywikibot see `docs <https://doc.wikimedia.org/pywikibot/>`_.
+
+Basic Usage
+-----------
+
+If you wish to write your own script it's very easy to get started:
+
+::
+
+    import pywikibot
+    site = pywikibot.Site('en', 'wikipedia')  # The site we want to run our bot on
+    page = pywikibot.Page(site, 'Wikipedia:Sandbox')
+    page.text = page.text.replace('foo', 'bar')
+    page.save('Replacing "foo" with "bar"')  # Saves the page
 
 Required external programs
 ---------------------------
